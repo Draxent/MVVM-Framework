@@ -22,6 +22,7 @@ class ViewContext {
     required this.scaffoldMessenger,
     required this.focusScopeNode,
     required this.showDialog,
+    required this.showModalBottomSheet,
     required this.theme,
     required this.mediaQuery,
     required this.textDirection,
@@ -50,6 +51,28 @@ class ViewContext {
     TraversalEdgeBehavior? traversalEdgeBehavior,
   })
   showDialog;
+
+  /// A function that shows a modal bottom sheet.
+  final Future<T?> Function<T>({
+    required WidgetBuilder builder,
+    Color? backgroundColor,
+    String? barrierLabel,
+    double? elevation,
+    ShapeBorder? shape,
+    Clip? clipBehavior,
+    BoxConstraints? constraints,
+    Color? barrierColor,
+    bool isScrollControlled,
+    bool useRootNavigator,
+    bool isDismissible,
+    bool enableDrag,
+    bool? showDragHandle,
+    bool useSafeArea,
+    RouteSettings? routeSettings,
+    AnimationController? transitionAnimationController,
+    Offset? anchorPoint,
+  })
+  showModalBottomSheet;
 
   /// The [ThemeData] for the view.
   final ThemeData theme;

@@ -18,25 +18,19 @@ void main() {
       onGenericError(GenericErrorContext context) {}
       loadingView(Widget view, bool isLoading) => const Placeholder();
 
-      ConfigMVVM.initialize(
-        onGenericError: onGenericError,
-        loadingView: loadingView,
-      );
+      ConfigMVVM.initialize(onGenericError: onGenericError, loadingView: loadingView);
 
       expect(ConfigMVVM.instance, isNotNull);
       expect(ConfigMVVM.instance.onGenericError, onGenericError);
       expect(ConfigMVVM.instance.loadingView, loadingView);
     });
 
-    test(
-      'should use default loading view if no custom loading view is provided',
-      () {
-        onGenericError(GenericErrorContext context) {}
-        ConfigMVVM.initialize(onGenericError: onGenericError);
+    test('should use default loading view if no custom loading view is provided', () {
+      onGenericError(GenericErrorContext context) {}
+      ConfigMVVM.initialize(onGenericError: onGenericError);
 
-        expect(ConfigMVVM.instance.loadingView, isNotNull);
-      },
-    );
+      expect(ConfigMVVM.instance.loadingView, isNotNull);
+    });
 
     test('should handle GenericErrorContext correctly', () {
       final errorContext = GenericErrorContext(
@@ -56,6 +50,26 @@ void main() {
                 TraversalEdgeBehavior? traversalEdgeBehavior,
                 bool useRootNavigator = true,
                 bool useSafeArea = true,
+              }) => Future.value(null),
+          showModalBottomSheet:
+              <T>({
+                Offset? anchorPoint,
+                Color? backgroundColor,
+                Color? barrierColor,
+                String? barrierLabel,
+                required WidgetBuilder builder,
+                Clip? clipBehavior,
+                BoxConstraints? constraints,
+                double? elevation,
+                bool enableDrag = true,
+                bool isDismissible = true,
+                bool isScrollControlled = false,
+                RouteSettings? routeSettings,
+                ShapeBorder? shape,
+                bool? showDragHandle,
+                AnimationController? transitionAnimationController,
+                bool useRootNavigator = false,
+                bool useSafeArea = false,
               }) => Future.value(null),
           theme: ThemeData(),
           mediaQuery: const MediaQueryData(),
