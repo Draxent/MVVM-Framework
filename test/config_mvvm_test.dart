@@ -18,19 +18,25 @@ void main() {
       onGenericError(GenericErrorContext context) {}
       loadingView(Widget view, bool isLoading) => const Placeholder();
 
-      ConfigMVVM.initialize(onGenericError: onGenericError, loadingView: loadingView);
+      ConfigMVVM.initialize(
+        onGenericError: onGenericError,
+        loadingView: loadingView,
+      );
 
       expect(ConfigMVVM.instance, isNotNull);
       expect(ConfigMVVM.instance.onGenericError, onGenericError);
       expect(ConfigMVVM.instance.loadingView, loadingView);
     });
 
-    test('should use default loading view if no custom loading view is provided', () {
-      onGenericError(GenericErrorContext context) {}
-      ConfigMVVM.initialize(onGenericError: onGenericError);
+    test(
+      'should use default loading view if no custom loading view is provided',
+      () {
+        onGenericError(GenericErrorContext context) {}
+        ConfigMVVM.initialize(onGenericError: onGenericError);
 
-      expect(ConfigMVVM.instance.loadingView, isNotNull);
-    });
+        expect(ConfigMVVM.instance.loadingView, isNotNull);
+      },
+    );
 
     test('should handle GenericErrorContext correctly', () {
       final errorContext = GenericErrorContext(

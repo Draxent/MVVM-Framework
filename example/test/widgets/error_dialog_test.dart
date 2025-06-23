@@ -26,12 +26,11 @@ void main() {
                               onPressed: () {
                                 showDialog(
                                   context: context,
-                                  builder:
-                                      (_) => ErrorDialog(
-                                        msg: message,
-                                        description: description,
-                                        navigator: Navigator.of(context),
-                                      ),
+                                  builder: (_) => ErrorDialog(
+                                    msg: message,
+                                    description: description,
+                                    navigator: Navigator.of(context),
+                                  ),
                                 );
                               },
                               child: const Text('Show Error Dialog'),

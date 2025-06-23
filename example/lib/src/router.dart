@@ -17,8 +17,16 @@ class AppRouter {
   AppRouter()
     : router = GoRouter(
         routes: [
-          GoRoute(path: HomePage.path, name: HomePage.name, builder: (_, _) => inject<HomePage>()),
-          GoRoute(path: BasicPage.path, name: BasicPage.name, builder: (_, _) => BasicPage()),
+          GoRoute(
+            path: HomePage.path,
+            name: HomePage.name,
+            builder: (_, _) => inject<HomePage>(),
+          ),
+          GoRoute(
+            path: BasicPage.path,
+            name: BasicPage.name,
+            builder: (_, _) => BasicPage(),
+          ),
           GoRoute(
             path: CounterPage.path,
             name: CounterPage.name,

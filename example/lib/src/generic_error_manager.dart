@@ -23,12 +23,11 @@ class GenericErrorManager {
     } else {
       errorContext.viewContext
           .showDialog(
-            builder:
-                (_) => ErrorDialog(
-                  msg: errorContext.error.message ?? 'Error',
-                  description: errorContext.error.stackTrace?.toString() ?? '',
-                  navigator: errorContext.viewContext.navigator,
-                ),
+            builder: (_) => ErrorDialog(
+              msg: errorContext.error.message ?? 'Error',
+              description: errorContext.error.stackTrace?.toString() ?? '',
+              navigator: errorContext.viewContext.navigator,
+            ),
           )
           .then((_) => errorContext.emitViewStatus(viewStatusInitial));
     }

@@ -12,7 +12,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 ///
 /// This class simplifies the process of creating widgets that follow the MVVM architectural pattern.
 /// It handles the creation of the [ViewModel], provides access to the [ViewContext], and manages the lifecycle of the [View].
-abstract class MVVM<M extends Model, V extends ViewWidget, VM extends ViewModel<M>>
+abstract class MVVM<
+  M extends Model,
+  V extends ViewWidget,
+  VM extends ViewModel<M>
+>
     extends StatefulWidget {
   /// Creates a new MVVM widget.
   const MVVM({
@@ -33,7 +37,8 @@ abstract class MVVM<M extends Model, V extends ViewWidget, VM extends ViewModel<
   final bool isLoadingManagedAutomatically;
 
   /// A function that creates a custom [ViewAdditionalContext].
-  final ViewAdditionalContext Function(BuildContext context)? viewContextBuilder;
+  final ViewAdditionalContext Function(BuildContext context)?
+  viewContextBuilder;
 
   @override
   State<MVVM<M, V, VM>> createState() => MVVMState<M, V, VM>();
@@ -137,7 +142,9 @@ class MVVMState<M extends Model, V extends ViewWidget, VM extends ViewModel<M>>
       theme: Theme.of(context),
       mediaQuery: MediaQuery.of(context),
       textDirection: Directionality.of(context),
-      others: widget.viewContextBuilder?.call(context) ?? const ViewEmptyAdditionalContext(),
+      others:
+          widget.viewContextBuilder?.call(context) ??
+          const ViewEmptyAdditionalContext(),
     );
   }
 
@@ -157,7 +164,10 @@ class MVVMState<M extends Model, V extends ViewWidget, VM extends ViewModel<M>>
 
   Widget _onBuild(BuildContext context, M state) {
     return widget.isLoadingManagedAutomatically
-        ? ConfigMVVM.instance.loadingView(widget.view, state.viewStatus.isLoading)
+        ? ConfigMVVM.instance.loadingView(
+            widget.view,
+            state.viewStatus.isLoading,
+          )
         : widget.view;
   }
 }

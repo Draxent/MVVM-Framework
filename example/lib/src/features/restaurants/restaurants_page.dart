@@ -134,11 +134,8 @@ class _RestaurantListView extends ViewWidget<RestaurantsVM> {
     }
     final restaurants = select(context, (x) => x.state.restaurants);
     return ListView.separated(
-      separatorBuilder:
-          (_, i) => const Padding(
-            padding: EdgeInsets.only(left: 30),
-            child: Divider(),
-          ),
+      separatorBuilder: (_, i) =>
+          const Padding(padding: EdgeInsets.only(left: 30), child: Divider()),
       itemCount: restaurants.length,
       itemBuilder: (_, i) => _RestaurantItemView(item: restaurants[i]),
     );

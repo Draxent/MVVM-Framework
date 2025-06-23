@@ -54,8 +54,8 @@ abstract class ViewModel<M extends Model> extends Cubit<M> {
           GenericErrorContext<M>(
             error: error,
             viewContext: viewContext,
-            emitViewStatus:
-                (viewStatus) => emit(state.copyWithViewStatus(viewStatus) as M),
+            emitViewStatus: (viewStatus) =>
+                emit(state.copyWithViewStatus(viewStatus) as M),
           ),
         );
       }

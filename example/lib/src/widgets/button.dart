@@ -16,13 +16,12 @@ class AppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: isLoading ? null : onPressed,
-      child:
-          isLoading
-              ? const SizedBox.square(
-                dimension: 20,
-                child: CircularProgressIndicator(),
-              )
-              : Text(label),
+      child: isLoading
+          ? const SizedBox.square(
+              dimension: 20,
+              child: CircularProgressIndicator(),
+            )
+          : Text(label),
     );
   }
 }

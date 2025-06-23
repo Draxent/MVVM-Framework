@@ -9,8 +9,8 @@ import 'package:example/src/generic_error_manager.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   ConfigMVVM.initialize(
-    onGenericError:
-        (errorContext) => GenericErrorManager(errorContext).manageError(),
+    onGenericError: (errorContext) =>
+        GenericErrorManager(errorContext).manageError(),
   );
   await configureDependencies();
   runApp(const MyApp());

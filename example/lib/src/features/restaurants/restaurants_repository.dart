@@ -51,8 +51,8 @@ class RestaurantsRepository {
   ) {
     // Simplified distance calculation for simulation purposes
     final latDiff = (userLocation.latitude - restaurantLocation.latitude).abs();
-    final lonDiff =
-        (userLocation.longitude - restaurantLocation.longitude).abs();
+    final lonDiff = (userLocation.longitude - restaurantLocation.longitude)
+        .abs();
     return latDiff + lonDiff;
   }
 
